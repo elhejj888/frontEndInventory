@@ -2,8 +2,7 @@
 import React from 'react';
 import { FiInfo, FiCheckCircle, FiAlertTriangle, FiXCircle } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import 'tailwindcss/tailwind.css';
-
+import '../globals.css';
 const notifications = [
   { id: 1, type: 'info', message: 'Your profile has been updated successfully.' },
   { id: 2, type: 'success', message: 'Your order has been confirmed and shipped.' },
