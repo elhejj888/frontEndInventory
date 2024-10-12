@@ -1,10 +1,11 @@
+// TechnicianDetails.js
 'use client';
 import { useSearchParams } from 'next/navigation';
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from 'react';
 import DataTable from './dataTable';
 
-const TechnicianDetails = () => {
+const TechnicianDetailsClient = () => {
   const { data: session } = useSession();
   const searchParams = useSearchParams();
   const technicianId = searchParams.get('technicianId'); // Retrieve the technicianId from the URL
@@ -98,6 +99,15 @@ const TechnicianDetails = () => {
         <DataTable data={data} session={session} />
       </div>
     </div>
+  );
+};
+
+// Wrap it in a default export
+const TechnicianDetails = () => {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <TechnicianDetailsClient />
+    </React.Suspense>
   );
 };
 
